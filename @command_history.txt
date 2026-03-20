@@ -1,0 +1,24 @@
+[2026-03-19 17:54:33] [from Darwin SavannaMacBookPro-9.local]  3495  ./build-nanodrop-viewer-mac-app.sh
+[2026-03-19 17:55:23] [from Darwin SavannaMacBookPro-9.local]  3495  ./build-nanodrop-viewer-mac-app.sh
+[2026-03-19 17:56:11] [from Darwin SavannaMacBookPro-9.local]  3495  ./build-nanodrop-viewer-mac-app.sh
+[2026-03-20 16:01:54] [from Darwin SavannaMacBookPro-9.local]  3495  ./build-nanodrop-viewer-mac-app.sh
+[2026-03-20 16:01:58] [from Darwin SavannaMacBookPro-9.local]  3496  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+
+[2026-03-20 16:02:10] [from Darwin SavannaMacBookPro-9.local]  3496  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+
+[2026-03-20 16:02:13] [from Darwin SavannaMacBookPro-9.local]  3496  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+
+[2026-03-20 16:02:42] [from Darwin SavannaMacBookPro-9.local]  3497  which flutter
+[2026-03-20 16:05:50] [from Darwin SavannaMacBookPro-9.local]  3498  brew install --cask flutter
+[2026-03-20 16:11:12] [from Darwin SavannaMacBookPro-9.local]  3499  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+
+[2026-03-20 16:11:32] [from Darwin SavannaMacBookPro-9.local]  3500  brew install --cask rustup
+[2026-03-20 16:14:28] [from Darwin SavannaMacBookPro-9.local]  3506  cd Github/rdgen
+[2026-03-20 16:14:31] [from Darwin SavannaMacBookPro-9.local]  3507  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+[2026-03-20 16:14:42] [from Darwin SavannaMacBookPro-9.local]  3508  brew install ninga
+[2026-03-20 16:14:53] [from Darwin SavannaMacBookPro-9.local]  3509  brew install ninja
+[2026-03-20 16:15:12] [from Darwin SavannaMacBookPro-9.local]  3510  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+[2026-03-20 16:16:01] [from Darwin SavannaMacBookPro-9.local]  3510  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+[2026-03-20 16:17:45] [from Darwin SavannaMacBookPro-9.local]  3510  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+[2026-03-20 17:00:10] [from Darwin SavannaMacBookPro-9.local]  3511  python3 scripts/local_rustdesk_build.py --config examples/local-build-config.savanna.jsonc
+

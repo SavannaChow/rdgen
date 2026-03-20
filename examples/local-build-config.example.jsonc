@@ -1,0 +1,191 @@
+# 本檔可直接給 scripts/local_rustdesk_build.py 使用。
+# 它支援 #、//、/* */ 註解，腳本會在解析前自動去掉註解。
+
+{
+  # RustDesk upstream 版本；目前 rdgen UI 主要對應 1.4.6 或 master/nightly
+  "version": "1.4.6",
+
+  # 要建哪些平台；可填 ["macos"]、["android"] 或 ["macos", "android"]
+  "platforms": ["macos", "android"],
+
+  # App 顯示名稱；會套到 macOS / Android UI 與多數品牌字串
+  "app_name": "Acme Remote",
+
+  # 產物檔名基底；ASCII 比較安全
+  "filename": "acme-remote",
+
+  # 公司名稱；會替換部分 metadata / copyright 位置
+  "company_name": "Acme Inc",
+
+  # ID 伺服器 / hbbs
+  "server": "rd.example.com",
+
+  # RustDesk 伺服器 public key，不是 Pro license key
+  "key": "REPLACE_WITH_YOUR_PUBLIC_KEY",
+
+  # API 伺服器；Address Book / Pro API 會用到
+  "api_server": "https://rd.example.com:21114",
+
+  # App 內點擊官網相關連結時導向的網址
+  "url_link": "https://remote.example.com",
+
+  # App 內更新/下載提示導向的網址
+  "download_link": "https://remote.example.com/download",
+
+  # Android applicationId / package name
+  "android_app_id": "com.example.acmeremote",
+
+  "assets": {
+    # App 主圖示，建議正方形 PNG
+    "icon_path": "./assets/icon.png",
+
+    # App 內顯示 logo，用於 Flutter assets/logo.png
+    "logo_path": "./assets/logo.png",
+
+    # 目前腳本先保留欄位，尚未接進 macOS / Android build
+    "privacy_path": ""
+  },
+
+  "features": {
+    # 把 client.rs 的 !key.is_empty() 改成 false，對齊 rdgen workflow
+    "delay_fix": true,
+
+    # 工具列加上切換螢幕按鈕
+    "cycle_monitor": false,
+
+    # 通訊錄離線狀態改顯示 X
+    "x_offline": false,
+
+    # 啟用 hide connection manager 相關 patch
+    "hide_cm": false,
+
+    # 移除新版本通知卡
+    "remove_new_version_notif": true,
+
+    # 移除 setup server 提示卡
+    "remove_setup_server_tip": true
+  },
+
+  "client_config": {
+    # incoming / outgoing / both
+    "direction": "both",
+
+    # true 代表停用安裝功能
+    "disable_installation": false,
+
+    # true 代表停用設定頁
+    "disable_settings": false,
+
+    # 預設永久密碼；留空則不內建
+    "permanent_password": "",
+
+    # light / dark / system
+    "theme": "system",
+
+    # default / override
+    "theme_scope": "default",
+
+    # 關閉 LAN discovery
+    "deny_lan": false,
+
+    # 啟用 direct IP
+    "enable_direct_ip": false,
+
+    # 自動關閉連線
+    "auto_close": false,
+
+    # 權限設定套在哪一層：default / override
+    "permissions_scope": "default",
+
+    # custom / full / view
+    "permissions_type": "custom",
+
+    "permissions": {
+      "keyboard": true,
+      "clipboard": true,
+      "file_transfer": true,
+      "audio": true,
+      "tcp_tunneling": true,
+      "remote_restart": true,
+      "recording": true,
+      "blocking_input": true,
+      "remote_config_modification": false,
+      "printer": true,
+      "camera": true,
+      "terminal": true
+    },
+
+    # use-both-passwords / use-permanent-password
+    "verification_method": "use-both-passwords",
+
+    # password / click / password-click
+    "approve_mode": "password-click",
+
+    # 是否允許移除桌布
+    "remove_wallpaper": true,
+
+    # 直接寫進 default-settings 的進階參數
+    "default_settings": {
+      "allow-linux-headless": "Y"
+    },
+
+    # 直接寫進 override-settings 的進階參數
+    "override_settings": {}
+  },
+
+  "toolchain": {
+    # Flutter command 名稱或完整路徑
+    "flutter_bin": "flutter",
+
+    # Cargo command 名稱或完整路徑
+    "cargo_bin": "cargo",
+
+    # Rustup command 名稱或完整路徑
+    "rustup_bin": "rustup",
+
+    # 是否 patch 本機 Flutter SDK 的 dropdown_menu 行為
+    "patch_flutter_sdk": false,
+
+    # 是否套用 Flutter scheduler workaround
+    "flutter_scheduler_workaround": false,
+
+    # Android NDK 路徑
+    "android_ndk": "/Users/YOUR_NAME/Library/Android/sdk/ndk/27.2.12479018"
+  },
+
+  "macos": {
+    # 是否建 macOS
+    "enabled": true,
+
+    # 最低支援版本
+    "minimum_version": "12.3",
+
+    # 是否加上 --screencapturekit
+    "screencapturekit": true,
+
+    # 是否額外產出 dmg
+    "create_dmg": true,
+
+    # codesign identity；留空代表不簽
+    "codesign_identity": ""
+  },
+
+  "android": {
+    # 是否建 Android
+    "enabled": true,
+
+    # 要輸出的 ABI；目前支援 arm64-v8a / armeabi-v7a / x86_64
+    "abis": ["arm64-v8a"],
+
+    # release / debug
+    "build_mode": "release",
+
+    "signing": {
+      # Android keystore 路徑；留空則退回 debug signing
+      "keystore_path": "",
+      "store_password": "",
+      "key_alias": "",
+      "key_password": ""
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "version": "1.4.6",
+  "platforms": ["macos", "android"],
+  "app_name": "Acme Remote",
+  "filename": "acme-remote",
+  "company_name": "Acme Inc",
+  "server": "rd.example.com",
+  "key": "REPLACE_WITH_YOUR_PUBLIC_KEY",
+  "api_server": "https://rd.example.com:21114",
+  "url_link": "https://remote.example.com",
+  "download_link": "https://remote.example.com/download",
+  "android_app_id": "com.example.acmeremote",
+  "assets": {
+    "icon_path": "./assets/icon.png",
+    "logo_path": "./assets/logo.png",
+    "privacy_path": ""
+  },
+  "features": {
+    "delay_fix": true,
+    "cycle_monitor": false,
+    "x_offline": false,
+    "hide_cm": false,
+    "remove_new_version_notif": true,
+    "remove_setup_server_tip": true
+  },
+  "client_config": {
+    "direction": "both",
+    "disable_installation": false,
+    "disable_settings": false,
+    "permanent_password": "",
+    "theme": "system",
+    "theme_scope": "default",
+    "deny_lan": false,
+    "enable_direct_ip": false,
+    "auto_close": false,
+    "permissions_scope": "default",
+    "permissions_type": "custom",
+    "permissions": {
+      "keyboard": true,
+      "clipboard": true,
+      "file_transfer": true,
+      "audio": true,
+      "tcp_tunneling": true,
+      "remote_restart": true,
+      "recording": true,
+      "blocking_input": true,
+      "remote_config_modification": false,
+      "printer": true,
+      "camera": true,
+      "terminal": true
+    },
+    "verification_method": "use-both-passwords",
+    "approve_mode": "password-click",
+    "remove_wallpaper": true,
+    "default_settings": {
+      "allow-linux-headless": "Y"
+    },
+    "override_settings": {}
+  },
+  "toolchain": {
+    "flutter_bin": "flutter",
+    "cargo_bin": "cargo",
+    "rustup_bin": "rustup",
+    "patch_flutter_sdk": false,
+    "flutter_scheduler_workaround": false,
+    "android_ndk": "/Users/YOUR_NAME/Library/Android/sdk/ndk/27.2.12479018"
+  },
+  "macos": {
+    "enabled": true,
+    "minimum_version": "12.3",
+    "screencapturekit": true,
+    "create_dmg": true,
+    "codesign_identity": ""
+  },
+  "android": {
+    "enabled": true,
+    "abis": ["arm64-v8a"],
+    "build_mode": "release",
+    "signing": {
+      "keystore_path": "",
+      "store_password": "",
+      "key_alias": "",
+      "key_password": ""
+    }
+  }
+}

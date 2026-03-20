@@ -1,0 +1,113 @@
+# 這份是依照你提供的環境先填好的本機 build 設定。
+# 可直接複製成自己的工作檔再調整 icon/logo/NDK 路徑。
+#
+# 你提供的帳號 savanna201 / 密碼目前不會寫進 build-time config。
+# 這比較像 RustDesk Pro / Address Book 的執行時登入資訊。
+# 目前腳本會把 API server 硬編進 client，但不會替你自動登入帳號。
+
+{
+  "version": "1.4.6",
+  "platforms": ["macos", "android"],
+  "app_name": "Savanna RustDesk",
+  "filename": "savanna-rustdesk",
+  "company_name": "Savanna",
+
+  # ID server / hbbs
+  "server": "10.98.42.246",
+
+  # RustDesk public key
+  "key": "mtIW6rj+kzKAESuJiZETjq0vx6Q+Q3ky2eSRtO3hTyU=",
+
+  # Pro / Address Book API server
+  "api_server": "http://10.98.42.246:21114",
+
+  # 這兩個先沿用預設；若你有自家入口網站可再改
+  "url_link": "https://rustdesk.com",
+  "download_link": "https://rustdesk.com/download",
+
+  # 你的 relay 跟 ID server 同主機時，RustDesk 通常會自動推導；
+  # 若日後你要強制指定 relay，可再放到 client_config.default_settings / override_settings 裡。
+  "android_app_id": "com.savanna.rustdesk",
+
+  "assets": {
+    "icon_path": "./assets/icon.png",
+    "logo_path": "./assets/logo.png",
+    "privacy_path": ""
+  },
+
+  "features": {
+    "delay_fix": true,
+    "cycle_monitor": false,
+    "x_offline": false,
+    "hide_cm": false,
+    "remove_new_version_notif": true,
+    "remove_setup_server_tip": true
+  },
+
+  "client_config": {
+    "direction": "both",
+    "disable_installation": false,
+    "disable_settings": false,
+    "permanent_password": "",
+    "theme": "system",
+    "theme_scope": "default",
+    "deny_lan": false,
+    "enable_direct_ip": false,
+    "auto_close": false,
+    "permissions_scope": "default",
+    "permissions_type": "custom",
+    "permissions": {
+      "keyboard": true,
+      "clipboard": true,
+      "file_transfer": true,
+      "audio": true,
+      "tcp_tunneling": true,
+      "remote_restart": true,
+      "recording": true,
+      "blocking_input": true,
+      "remote_config_modification": false,
+      "printer": true,
+      "camera": true,
+      "terminal": true
+    },
+    "verification_method": "use-both-passwords",
+    "approve_mode": "password-click",
+    "remove_wallpaper": true,
+    "default_settings": {
+      # 如果你日後有用到 RustDesk Pro Address Book，可把 address-book 相關 preset 放這裡
+      # 例如:
+      # "preset-address-book-name": "Default AB"
+      "allow-linux-headless": "Y"
+    },
+    "override_settings": {}
+  },
+
+  "toolchain": {
+    "flutter_bin": "flutter",
+    "cargo_bin": "cargo",
+    "rustup_bin": "rustup",
+    "patch_flutter_sdk": false,
+    "flutter_scheduler_workaround": false,
+    "android_ndk": "/Users/YOUR_NAME/Library/Android/sdk/ndk/27.2.12479018"
+  },
+
+  "macos": {
+    "enabled": true,
+    "minimum_version": "12.3",
+    "screencapturekit": true,
+    "create_dmg": true,
+    "codesign_identity": ""
+  },
+
+  "android": {
+    "enabled": true,
+    "abis": ["arm64-v8a"],
+    "build_mode": "release",
+    "signing": {
+      "keystore_path": "",
+      "store_password": "",
+      "key_alias": "",
+      "key_password": ""
+    }
+  }
+}
